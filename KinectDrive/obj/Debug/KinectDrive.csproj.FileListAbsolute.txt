@@ -1,0 +1,11 @@
+C:\Users\Asagi\source\repos\KinectDrive\KinectDrive\bin\Debug\KinectDrive.exe.config
+C:\Users\Asagi\source\repos\KinectDrive\KinectDrive\bin\Debug\KinectDrive.exe
+C:\Users\Asagi\source\repos\KinectDrive\KinectDrive\bin\Debug\KinectDrive.pdb
+C:\Users\Asagi\source\repos\KinectDrive\KinectDrive\obj\Debug\KinectDrive.csprojAssemblyReference.cache
+C:\Users\Asagi\source\repos\KinectDrive\KinectDrive\obj\Debug\KinectDrive.Properties.Resources.resources
+C:\Users\Asagi\source\repos\KinectDrive\KinectDrive\obj\Debug\KinectDrive.csproj.GenerateResource.cache
+C:\Users\Asagi\source\repos\KinectDrive\KinectDrive\obj\Debug\KinectDrive.csproj.CoreCompileInputs.cache
+C:\Users\Asagi\source\repos\KinectDrive\KinectDrive\obj\Debug\KinectDrive.exe
+C:\Users\Asagi\source\repos\KinectDrive\KinectDrive\obj\Debug\KinectDrive.pdb
+C:\Users\Asagi\source\repos\KinectDrive\KinectDrive\obj\Debug\KinectDrive.MainForm.resources
+C:\Users\Asagi\source\repos\KinectDrive\KinectDrive\obj\Debug\KinectDrive.KinectForm.resources
