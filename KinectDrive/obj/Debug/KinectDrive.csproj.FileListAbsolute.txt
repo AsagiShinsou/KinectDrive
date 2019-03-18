@@ -9,3 +9,17 @@ C:\Users\Asagi\source\repos\KinectDrive\KinectDrive\obj\Debug\KinectDrive.exe
 C:\Users\Asagi\source\repos\KinectDrive\KinectDrive\obj\Debug\KinectDrive.pdb
 C:\Users\Asagi\source\repos\KinectDrive\KinectDrive\obj\Debug\KinectDrive.MainForm.resources
 C:\Users\Asagi\source\repos\KinectDrive\KinectDrive\obj\Debug\KinectDrive.KinectForm.resources
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\obj\Debug\KinectDrive.csprojResolveAssemblyReference.cache
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\obj\Debug\KinectDrive.MainForm.resources
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\obj\Debug\KinectDrive.KinectForm.resources
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\obj\Debug\KinectDrive.Properties.Resources.resources
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\obj\Debug\KinectDrive.csproj.GenerateResource.Cache
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\obj\Debug\KinectDrive.exe
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\obj\Debug\KinectDrive.pdb
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\KinectDrive.exe.config
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\KinectDrive.exe
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\KinectDrive.pdb
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\obj\Debug\Interop.KinectManagement.dll
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\obj\Debug\KinectDrive.csproj.ResolveComReference.cache
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\Microsoft.Kinect.dll
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\Microsoft.Kinect.xml
