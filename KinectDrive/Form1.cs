@@ -114,7 +114,14 @@ namespace KinectDrive
 
                     foreach (Skeleton skel in skeletons)
                     {
-                        klog.Text = "";
+                        foreach (Joint joint in skel.Joints)
+                        {
+                            if (joint.JointType.ToString() == "Head")
+                            {
+                                klog.Text = "x:"+joint.Position.X.ToString()+" y:"+ joint.Position.Y.ToString()+" z:"+joint.Position.Z.ToString();
+                            }
+                            
+                        }
 
                     }
                 }
