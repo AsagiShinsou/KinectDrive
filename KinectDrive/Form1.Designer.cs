@@ -38,6 +38,7 @@
             this.просмотретьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.klog = new System.Windows.Forms.RichTextBox();
             this.StatusLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -45,7 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.KinectTimer = new System.Windows.Forms.Timer(this.components);
-            this.klog = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -126,6 +126,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Подключение";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // klog
+            // 
+            this.klog.Location = new System.Drawing.Point(26, 248);
+            this.klog.Name = "klog";
+            this.klog.Size = new System.Drawing.Size(347, 52);
+            this.klog.TabIndex = 6;
+            this.klog.Text = "";
+            this.klog.TextChanged += new System.EventHandler(this.klog_TextChanged);
             // 
             // StatusLabel
             // 
@@ -181,15 +191,8 @@
             // 
             // KinectTimer
             // 
+            this.KinectTimer.Interval = 10;
             this.KinectTimer.Tick += new System.EventHandler(this.KinectTimer_Tick);
-            // 
-            // klog
-            // 
-            this.klog.Location = new System.Drawing.Point(26, 248);
-            this.klog.Name = "klog";
-            this.klog.Size = new System.Drawing.Size(347, 52);
-            this.klog.TabIndex = 6;
-            this.klog.Text = "";
             // 
             // MainForm
             // 
