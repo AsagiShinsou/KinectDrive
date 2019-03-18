@@ -17,7 +17,7 @@ using Microsoft.Kinect;
 
 namespace KinectDrive
 {
-    
+
     public partial class MainForm : Form
     {
         private KinectSensor sensor;
@@ -39,7 +39,7 @@ namespace KinectDrive
 
         private void просмотретьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             kform.Show();
         }
 
@@ -51,7 +51,7 @@ namespace KinectDrive
             var encoded = Encoding.UTF8.GetBytes("hi there");
             var buffer = new ArraySegment<Byte>(encoded, 0, encoded.Length);
             socket.SendAsync(buffer, WebSocketMessageType.Text, true, CancellationToken.None);
-            
+
             //socket.SendAsync(sendBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
         }
 
@@ -71,13 +71,13 @@ namespace KinectDrive
                 this.sensor.SkeletonStream.Enable();
                 StatusLabel.Text = "Kinect connected!";
                 this.sensor.Start();
-                
+
                 this.sensor.SkeletonFrameReady += this.SensorSkeletonFrameReady;
                 this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
-                
+
                 //this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Default;
             }
-            
+
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -92,21 +92,31 @@ namespace KinectDrive
         {
             if (null != this.sensor)
             {
-                
+
             }
         }
 
 
         private void SensorSkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs e)
         {
-            
+
             Skeleton[] skeletons = new Skeleton[0];
-            if (skeletons.Length != 0)
+
+
+
+            using (SkeletonFrame skeletonFrame = e.OpenSkeletonFrame())
             {
-                klog.Text = "SKEL FOUND";
-                foreach (Skeleton skel in skeletons)
+                if (skeletonFrame != null)
                 {
-                    
+                    skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
+                    skeletonFrame.CopySkeletonDataTo(skeletons);
+
+
+                    foreach (Skeleton skel in skeletons)
+                    {
+                        klog.Text = "";
+
+                    }
                 }
             }
         }
