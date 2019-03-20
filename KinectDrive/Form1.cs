@@ -14,11 +14,52 @@ using System.Threading;
 using KinectManagement;
 using Microsoft.Kinect;
 using WebSocket4Net;
+using System.Runtime.Serialization.Json;
+using System.Runtime.Serialization;
 
 
 
 namespace KinectDrive
 {
+    [DataContract]
+    class kinectJson
+    {
+        [DataMember]
+        public string head_x { get; set; }
+        public string head_y { get; set; }
+        public string head_z { get; set; }
+
+        [DataMember]
+        public int armRight { get; set; }
+
+        [DataMember]
+        public int armLeft { get; set; }
+        [DataMember]
+        public int head { get; set; }
+
+        public kinectJson()
+        {
+           
+        }
+
+        public bool set_head_pos(string x, string y, string z)
+        {
+            this.head_x = x;
+            this.head_x = y;
+            this.head_x = z;
+
+            return true;
+        }
+
+    }
+
+    /*
+     Person person1 = new Person("Tom", 29, new Company("Microsoft"));
+            Person person2 = new Person("Bill", 25, new Company("Apple"));
+            Person[] people = new Person[] { person1, person2 };
+ 
+            DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(Person[]));
+         */
 
     public partial class MainForm : Form
     {
