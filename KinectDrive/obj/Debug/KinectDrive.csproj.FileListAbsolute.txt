@@ -23,3 +23,13 @@ C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\obj\Debug\Interop.KinectM
 C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\obj\Debug\KinectDrive.csproj.ResolveComReference.cache
 C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\Microsoft.Kinect.dll
 C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\Microsoft.Kinect.xml
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\SuperSocket.ClientEngine.dll
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\System.Collections.Specialized.dll
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\System.Net.NameResolution.dll
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\System.Net.Security.dll
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\System.Net.Sockets.dll
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\System.Security.Cryptography.Algorithms.dll
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\System.Security.Cryptography.Encoding.dll
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\System.Security.Cryptography.Primitives.dll
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\WebSocket4Net.dll

@@ -9,10 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
-using System.Net.WebSockets;
+
 using System.Threading;
 using KinectManagement;
 using Microsoft.Kinect;
+using WebSocket4Net;
+
 
 
 namespace KinectDrive
@@ -62,18 +64,21 @@ namespace KinectDrive
 
         private void просмотретьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             kform.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            var socket = new ClientWebSocket();
-            socket.ConnectAsync(new Uri(ServerUrl.Text), CancellationToken.None);
-            var encoded = Encoding.UTF8.GetBytes("hi there");
-            var buffer = new ArraySegment<Byte>(encoded, 0, encoded.Length);
-            socket.SendAsync(buffer, WebSocketMessageType.Text, true, CancellationToken.None);
+            WebSocket
+            websocket = new WebSocket("ws://mailshark.ru:3000/");//создаем вебсокет
+            
+           /* websocket.Opened += new EventHandler(websocket_Opened);//событие возникающее в момент открытия
+            websocket.Error += new EventHandler<ErrorEventArgs>(websocket_Error); //событие возникающее при ошибке
+            websocket.Closed += new EventHandler(websocket_Closed); //событие закрытия
+            websocket.MessageReceived += new EventHandler(websocket_MessageReceived);//получение сообщений*/
+            websocket.Open();//подключиться
+            while (websocket.State == WebSocketState.Connecting) { };
+            websocket.Send("hello");
 
             //socket.SendAsync(sendBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
         }
