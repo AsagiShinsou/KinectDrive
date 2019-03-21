@@ -42,7 +42,12 @@ namespace KinectDrive
             public string head_y { get; set; }
             [DataMember]
             public string head_z { get; set; }
-
+            [DataMember]
+            public string neck_x { get; set; }
+            [DataMember]
+            public string neck_y { get; set; }
+            [DataMember]
+            public string neck_z { get; set; }
             [DataMember]
             public string armRight_x { get; set; }
             [DataMember]
@@ -57,10 +62,72 @@ namespace KinectDrive
             [DataMember]
             public string armLeft_z { get; set; }
             
+            [DataMember]
+            public string spineShoulder_x { get; set; }
+            [DataMember]
+            public string spineShoulder_y { get; set; }
+            [DataMember]
+            public string spineShoulder_z { get; set; }
+
+            [DataMember]
+            public string shoulderLeft_x { get; set; }
+            [DataMember]
+            public string shoulderLeft_y { get; set; }
+            [DataMember]
+            public string shoulderLeft_z { get; set; }
+
+
+            [DataMember]
+            public string shoulderRight_x { get; set; }
+            [DataMember]
+            public string shoulderRight_y { get; set; }
+            [DataMember]
+            public string shoulderRight_z { get; set; }
+
+
+            [DataMember]
+            public string elbowLeft_x { get; set; }
+            [DataMember]
+            public string elbowLeft_y { get; set; }
+            [DataMember]
+            public string elbowLeft_z { get; set; }
+
+            [DataMember]
+            public string elbowRight_x { get; set; }
+            [DataMember]
+            public string elbowRight_y { get; set; }
+            [DataMember]
+            public string elbowRight_z { get; set; }
+
+            [DataMember]
+            public string wristLeft_x { get; set; }
+            [DataMember]
+            public string wristLeft_y { get; set; }
+            [DataMember]
+            public string wristLeft_z { get; set; }
+
+            [DataMember]
+            public string wristRight_x { get; set; }
+            [DataMember]
+            public string wristRight_y { get; set; }
+            [DataMember]
+            public string wristRight_z { get; set; }
+
+            [DataMember]
+            public string hip_x { get; set; }
+            [DataMember]
+            public string hip_y { get; set; }
+            [DataMember]
+            public string hip_z { get; set; }
+
+            
+
+            [DataMember]
+            public string action { get; set; }
 
             public kinectJson()
             {
-
+                this.action = "kinect_json";
             }
 
 
@@ -107,9 +174,9 @@ namespace KinectDrive
                 this.sensor.Start();
 
                 this.sensor.SkeletonFrameReady += this.SensorSkeletonFrameReady;
-                this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
+                //this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
 
-                //this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Default;
+                this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Default;
             }
 
             this.kinectData = new kinectJson();
@@ -156,7 +223,7 @@ namespace KinectDrive
         {
             
             string json = JsonConvert.SerializeObject(this.kinectData);
-           
+            //Console.WriteLine(json);
             websocket.Send(json);
            
         }
@@ -189,6 +256,14 @@ namespace KinectDrive
                                 this.kinectData.head_z = joint.Position.Z.ToString();
                             }
 
+                            if (joint.JointType.ToString() == "Neck")
+                            {
+                                //klog.Text = klog.Text + "HandR x:" + joint.Position.X.ToString() + " y:" + joint.Position.Y.ToString() + " z:" + joint.Position.Z.ToString();
+                                this.kinectData.neck_x = joint.Position.X.ToString();
+                                this.kinectData.neck_y = joint.Position.Y.ToString();
+                                this.kinectData.neck_z = joint.Position.Z.ToString();
+                            }
+
                             if (joint.JointType.ToString() == "HandRight")
                             {
                                 //klog.Text = klog.Text + "HandR x:" + joint.Position.X.ToString() + " y:" + joint.Position.Y.ToString() + " z:" + joint.Position.Z.ToString();
@@ -204,9 +279,76 @@ namespace KinectDrive
                                 this.kinectData.armLeft_y = joint.Position.Y.ToString();
                                 this.kinectData.armLeft_z = joint.Position.Z.ToString();
                             }
+
+                            if (joint.JointType.ToString() == "SpineShoulder")
+                            {
+                                //klog.Text = klog.Text + "HandL x:" + joint.Position.X.ToString() + " y:" + joint.Position.Y.ToString() + " z:" + joint.Position.Z.ToString();
+                                this.kinectData.spineShoulder_x = joint.Position.X.ToString();
+                                this.kinectData.spineShoulder_y = joint.Position.Y.ToString();
+                                this.kinectData.spineShoulder_z = joint.Position.Z.ToString();
+                            }
+
+                            if (joint.JointType.ToString() == "ShoulderLeft")
+                            {
+                                //klog.Text = klog.Text + "HandL x:" + joint.Position.X.ToString() + " y:" + joint.Position.Y.ToString() + " z:" + joint.Position.Z.ToString();
+                                this.kinectData.shoulderLeft_x = joint.Position.X.ToString();
+                                this.kinectData.shoulderLeft_y = joint.Position.Y.ToString();
+                                this.kinectData.shoulderLeft_z = joint.Position.Z.ToString();
+                            }
+
+                            if (joint.JointType.ToString() == "ShoulderRight")
+                            {
+                                //klog.Text = klog.Text + "HandL x:" + joint.Position.X.ToString() + " y:" + joint.Position.Y.ToString() + " z:" + joint.Position.Z.ToString();
+                                this.kinectData.shoulderRight_x = joint.Position.X.ToString();
+                                this.kinectData.shoulderRight_y = joint.Position.Y.ToString();
+                                this.kinectData.shoulderRight_z = joint.Position.Z.ToString();
+                            }
+
+                            if (joint.JointType.ToString() == "ElbowLeft")
+                            {
+                                //klog.Text = klog.Text + "HandL x:" + joint.Position.X.ToString() + " y:" + joint.Position.Y.ToString() + " z:" + joint.Position.Z.ToString();
+                                this.kinectData.elbowLeft_x = joint.Position.X.ToString();
+                                this.kinectData.elbowLeft_y = joint.Position.Y.ToString();
+                                this.kinectData.elbowLeft_z = joint.Position.Z.ToString();
+                            }
+
+                            if (joint.JointType.ToString() == "ElbowRight")
+                            {
+                                //klog.Text = klog.Text + "HandL x:" + joint.Position.X.ToString() + " y:" + joint.Position.Y.ToString() + " z:" + joint.Position.Z.ToString();
+                                this.kinectData.elbowRight_x = joint.Position.X.ToString();
+                                this.kinectData.elbowRight_y = joint.Position.Y.ToString();
+                                this.kinectData.elbowRight_z = joint.Position.Z.ToString();
+                            }
+
+
+                            if (joint.JointType.ToString() == "WristLeft")
+                            {
+                                //klog.Text = klog.Text + "HandL x:" + joint.Position.X.ToString() + " y:" + joint.Position.Y.ToString() + " z:" + joint.Position.Z.ToString();
+                                this.kinectData.wristLeft_x = joint.Position.X.ToString();
+                                this.kinectData.wristLeft_y = joint.Position.Y.ToString();
+                                this.kinectData.wristLeft_z = joint.Position.Z.ToString();
+                            }
+
+                            if (joint.JointType.ToString() == "WristRight")
+                            {
+                                //klog.Text = klog.Text + "HandL x:" + joint.Position.X.ToString() + " y:" + joint.Position.Y.ToString() + " z:" + joint.Position.Z.ToString();
+                                this.kinectData.wristRight_x = joint.Position.X.ToString();
+                                this.kinectData.wristRight_y = joint.Position.Y.ToString();
+                                this.kinectData.wristRight_z = joint.Position.Z.ToString();
+                            }
+
+                            if (joint.JointType.ToString() == "Hip")
+                            {
+                                //klog.Text = klog.Text + "HandL x:" + joint.Position.X.ToString() + " y:" + joint.Position.Y.ToString() + " z:" + joint.Position.Z.ToString();
+                                this.kinectData.hip_x = joint.Position.X.ToString();
+                                this.kinectData.hip_y = joint.Position.Y.ToString();
+                                this.kinectData.hip_z = joint.Position.Z.ToString();
+                            }
+
+
                         }
 
-                            Application.DoEvents();
+                        Application.DoEvents();
  
 
                     }
