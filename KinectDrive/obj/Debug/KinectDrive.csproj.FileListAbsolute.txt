@@ -33,3 +33,6 @@ C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\System.Security
 C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\System.Security.Cryptography.Primitives.dll
 C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\System.Security.Cryptography.X509Certificates.dll
 C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\WebSocket4Net.dll
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\ivan\Documents\GitHub\KinectDrive\KinectDrive\bin\Debug\Newtonsoft.Json.xml

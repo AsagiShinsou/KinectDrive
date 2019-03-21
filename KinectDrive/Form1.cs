@@ -16,55 +16,65 @@ using Microsoft.Kinect;
 using WebSocket4Net;
 using System.Runtime.Serialization.Json;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
+
 
 
 
 namespace KinectDrive
 {
-    [DataContract]
-    class kinectJson
-    {
-        [DataMember]
-        public string head_x { get; set; }
-        public string head_y { get; set; }
-        public string head_z { get; set; }
-
-        [DataMember]
-        public int armRight { get; set; }
-
-        [DataMember]
-        public int armLeft { get; set; }
-        [DataMember]
-        public int head { get; set; }
-
-        public kinectJson()
-        {
-           
-        }
-
-        public bool set_head_pos(string x, string y, string z)
-        {
-            this.head_x = x;
-            this.head_x = y;
-            this.head_x = z;
-
-            return true;
-        }
-
-    }
-
-    /*
-     Person person1 = new Person("Tom", 29, new Company("Microsoft"));
-            Person person2 = new Person("Bill", 25, new Company("Apple"));
-            Person[] people = new Person[] { person1, person2 };
- 
-            DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(Person[]));
-         */
+   
+   
 
     public partial class MainForm : Form
     {
+        public WebSocket websocket;
         private KinectSensor sensor;
         public KinectForm kform;
+        public kinectJson kinectData;
+
+
+        public class kinectJson
+        {
+            [DataMember]
+            public string head_x { get; set; }
+            [DataMember]
+            public string head_y { get; set; }
+            [DataMember]
+            public string head_z { get; set; }
+
+            [DataMember]
+            public string armRight_x { get; set; }
+            [DataMember]
+            public string armRight_y { get; set; }
+            [DataMember]
+            public string armRight_z { get; set; }
+
+            [DataMember]
+            public string armLeft_x { get; set; }
+            [DataMember]
+            public string armLeft_y { get; set; }
+            [DataMember]
+            public string armLeft_z { get; set; }
+            
+
+            public kinectJson()
+            {
+
+            }
+
+
+        }
+        
+        /*
+                Person person1 = new Person("Tom", 29, new Company("Microsoft"));
+                Person person2 = new Person("Bill", 25, new Company("Apple"));
+                Person[] people = new Person[] { person1, person2 };
+
+                DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(Person[]));
+             */
+
+
         public MainForm()
         {
             InitializeComponent();
@@ -77,6 +87,7 @@ namespace KinectDrive
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             kform = new KinectForm();
 
 
@@ -101,6 +112,8 @@ namespace KinectDrive
                 //this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Default;
             }
 
+            this.kinectData = new kinectJson();
+
         }
 
         private void просмотретьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -110,7 +123,7 @@ namespace KinectDrive
 
         private void button1_Click(object sender, EventArgs e)
         {
-            WebSocket
+           
             websocket = new WebSocket("ws://mailshark.ru:3000/");//создаем вебсокет
             
            /* websocket.Opened += new EventHandler(websocket_Opened);//событие возникающее в момент открытия
@@ -119,7 +132,8 @@ namespace KinectDrive
             websocket.MessageReceived += new EventHandler(websocket_MessageReceived);//получение сообщений*/
             websocket.Open();//подключиться
             while (websocket.State == WebSocketState.Connecting) { };
-            websocket.Send("hello");
+            KinectTimer.Enabled = true;
+
 
             //socket.SendAsync(sendBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
         }
@@ -140,7 +154,11 @@ namespace KinectDrive
 
         private void KinectTimer_Tick(object sender, EventArgs e)
         {
-            klog.Text = "";
+            
+            string json = JsonConvert.SerializeObject(this.kinectData);
+           
+            websocket.Send(json);
+           
         }
 
 
@@ -165,23 +183,31 @@ namespace KinectDrive
                         {
                             if (joint.JointType.ToString() == "Head")
                             {
-                                klog.Text = "Head x:" +joint.Position.X.ToString()+" y:"+ joint.Position.Y.ToString()+" z:"+joint.Position.Z.ToString();   
+                                
+                                this.kinectData.head_x = joint.Position.X.ToString();
+                                this.kinectData.head_y = joint.Position.Y.ToString();
+                                this.kinectData.head_z = joint.Position.Z.ToString();
                             }
 
                             if (joint.JointType.ToString() == "HandRight")
                             {
                                 //klog.Text = klog.Text + "HandR x:" + joint.Position.X.ToString() + " y:" + joint.Position.Y.ToString() + " z:" + joint.Position.Z.ToString();
+                                this.kinectData.armRight_x = joint.Position.X.ToString();
+                                this.kinectData.armRight_y = joint.Position.Y.ToString();
+                                this.kinectData.armRight_z = joint.Position.Z.ToString();
                             }
 
                             if (joint.JointType.ToString() == "HandLeft")
                             {
                                 //klog.Text = klog.Text + "HandL x:" + joint.Position.X.ToString() + " y:" + joint.Position.Y.ToString() + " z:" + joint.Position.Z.ToString();
+                                this.kinectData.armLeft_x = joint.Position.X.ToString();
+                                this.kinectData.armLeft_y = joint.Position.Y.ToString();
+                                this.kinectData.armLeft_z = joint.Position.Z.ToString();
                             }
+                        }
 
                             Application.DoEvents();
-
-
-                        }
+ 
 
                     }
                 }

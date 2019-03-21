@@ -191,7 +191,6 @@
             // 
             // KinectTimer
             // 
-            this.KinectTimer.Interval = 10;
             this.KinectTimer.Tick += new System.EventHandler(this.KinectTimer_Tick);
             // 
             // MainForm
