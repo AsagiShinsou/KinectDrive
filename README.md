@@ -1,15 +1,14 @@
-Проект для реализации связи Кинект-а и NodeJS.
-Данный софт своего рода посредник межжу кинектом и нодой.
+A project that implements sending data from kinect to any nodejs (and not only) server. Data is sent in JSON format. In the source code, everything will become clear.
 
-Сейчас софт еще не готов, но его принцип работы будет следующий:
+Everything works very quickly. The delay is minimal. The project was created to test how realistic it is to transfer tracking data from a kinect device to the web, for example, to develop games or interactive applications.
 
-В личном кабинете портала (для которого пишется софт) добавляем новое устройство:
-Тип: Kinect
-Вводим имя устройства, например: "Кинект"
-Нажимаем кнопку - получить токен
+If you need help in the assembly or comments - contact. In general, the project is quite interesting.
 
-Запускаем KinectDrive, вписываем в поле Url - адрес сервера в формате: ws://ip:port
-В поле token вставляем полученный ранее токен.
 
-Нажимаем Подключиться.
-Далее ждем когда статус поменяется на : "подключено" и можем пользоваться устройством.
+===============================================================
+
+Проект который реализует отправку данных с kinect на любой nodejs (и не только) сервер. Данные отправляются в JSON формате. В исходном коде все станет понятно.
+
+Работает все очень быстро. Задержка минимальна. Проект был создан, чтобы проверить, насколько реально перенести данные трекинга с устройства kinect в web, например для разработки игр или интерактивных приложений.
+
+Если потребуется помощь в сборке или комментарии - обращайтесь. В целом проект довольно интересен.
